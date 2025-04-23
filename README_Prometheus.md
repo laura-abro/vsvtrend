@@ -1,2 +1,2 @@
-# Comprehensive Project Management and Documentation Toolkit
+# Comprehensive Software Project Repository Template
 
