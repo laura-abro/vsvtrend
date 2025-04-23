@@ -2,254 +2,218 @@
 
 ## What is VSVTrend?
 
-VSVTrend is an advanced trading strategy and indicator developed for TradingView using Pine Script. It is designed to provide traders with a sophisticated, adaptive approach to market analysis and trade execution across various financial instruments and timeframes.
+VSVTrend is an advanced trading strategy developed for TradingView using Pine Script, designed to provide traders with a sophisticated, adaptive approach to market analysis and trading. The project aims to create a comprehensive, open-source trading strategy that combines multiple technical analysis techniques to improve trade accuracy and decision-making.
 
-## Purpose
+## Purpose and Target Audience
 
-The primary goal of VSVTrend is to create an open-source, community-driven "alpha indicator" strategy that maximizes trading accuracy through intelligent signal filtering and risk management. By combining technical analysis techniques with potential machine learning capabilities, the strategy aims to reduce false signals and improve overall trading performance.
+The primary goal of VSVTrend is to develop a robust "alpha indicator" strategy that can be used across various financial markets and timeframes. This project is ideal for:
 
-## Key Features
+- Experienced traders looking for an advanced, customizable trading strategy
+- Quantitative traders interested in algorithmic trading techniques
+- Developers and trading enthusiasts who want to explore and contribute to an open-source trading strategy
+- Individuals seeking a flexible trading tool with built-in risk management features
 
-1. **Adaptive Trading Mechanics**
-   - Flexible strategy toggle (on/off)
-   - Configurable stop loss and take profit percentages
-   - Works across multiple timeframes
+## Key Objectives
 
-2. **Advanced Filtering**
-   - Integrated Supertrend filter to validate trade signals
-   - Optional Supertrend filter toggle
-   - Potential false signal detection using AI/ML techniques
+- Provide a flexible trading strategy with adaptive indicators
+- Implement advanced risk management techniques
+- Incorporate machine learning capabilities for signal validation
+- Create a transparent, community-driven trading solution
 
-3. **Risk Management**
-   - Percentage-based equity allocation
-   - Customizable stop loss and take profit levels
-   - Automated entry and exit strategies for both long and short positions
+The strategy stands out by offering:
+- Intelligent trade entry and exit conditions
+- Configurable Supertrend filter
+- Adaptive Stop Loss and Take Profit mechanisms
+- Potential for continuous improvement through community feedback and contributions
 
-4. **Extensibility**
-   - Open-source architecture
-   - Designed for continuous community improvement
-   - Modular approach allowing easy customization and enhancement
-
-## Technical Overview
-
-Implemented in Pine Script v5, VSVTrend leverages technical analysis indicators like Average True Range (ATR) and Supertrend to generate trading signals. The strategy provides a robust framework for traders looking to automate and optimize their trading approach.
-
-## Installation
+## Getting Started
 
 ### Prerequisites
-- TradingView Account
-- Pine Editor Access
+- TradingView account
+- Pine Script v5 compatible environment
 
-### How to Install
-1. Open TradingView and navigate to the Pine Editor
-2. Copy the entire contents of `VSVTrend.pine`
-3. Paste the code into a new Pine Script strategy
-4. Compile and add the strategy to your chart
+### Installation
+1. Open TradingView Pine Editor
+2. Create a new Pine Script strategy
+3. Copy and paste the contents of `VSVTrend.pine` into the editor
 
 ### Configuration Options
 The strategy provides several configurable inputs:
-- `Strategy ON/OFF`: Toggle the entire strategy
-- `Supertrend filter`: Enable/disable Supertrend filter
-- `ATR period`: Adjust the Average True Range period
-- `factor`: Modify the Supertrend calculation factor
-- `Stop Loss`: Set stop loss percentage
-- `Take Profit`: Set take profit percentage
+- **Strategy ON/OFF**: Toggle the entire strategy
+- **Supertrend filter**: Enable/disable Supertrend filter
+- **ATR Period**: Configurable ATR calculation period (default: 10)
+- **Factor**: Supertrend calculation factor (default: 3.0)
+- **Stop Loss**: Set as a percentage of equity (default: 1.5%)
+- **Take Profit**: Set as a percentage of equity (default: 3.0%)
 
-### Compatibility
-- Compatible with TradingView Pine Script v5
+### Usage
+1. Apply the strategy to any chart
+2. Adjust input parameters as needed
+3. Utilize the strategy's built-in backtesting functionality
+
+### Important Notes
 - Works on all timeframes
-- Supports both long and short trading strategies
+- Default equity allocation: 10% per trade
+- Includes long and short trading conditions
 
-# API Reference
+## Features / Capabilities
 
-## Strategy Configuration Inputs
+### Core Strategy Features
+1. **Adaptive Trading Strategy**
+   - Dynamic entry and exit conditions based on market trends
+   - Supports both long and short trading positions
+   - Flexible strategy activation with on/off toggle
 
-### `show_strategy`
-- **Type**: `bool`
-- **Default**: `true`
-- **Description**: Turns the strategy on or off
-- **Usage**: 
-```pine
-show_strategy = input.bool(true, title="Strategy ON/OFF")
-```
+2. **Advanced Indicator System**
+   - Supertrend filter for trend identification
+     - Configurable Supertrend parameters:
+       - ATR Period (default: 10)
+       - Supertrend factor (default: 3.0)
+   - Toggleable Supertrend filter for customized trading approach
 
-### `use_supertrend`
-- **Type**: `bool`
-- **Default**: `true`
-- **Description**: Enables or disables the Supertrend filter
-- **Usage**: 
-```pine
-use_supertrend = input.bool(true, title="Supertrend filter")
-```
+3. **Risk Management**
+   - Integrated Stop Loss and Take Profit mechanisms
+     - Configurable Stop Loss percentage (default: 1.5%)
+     - Configurable Take Profit percentage (default: 3.0%)
+   - Percentage-based equity allocation (default: 10% per trade)
 
-### `atrPeriod`
-- **Type**: `int`
-- **Default**: `10`
-- **Description**: The period used for Average True Range (ATR) calculation
-- **Usage**: 
-```pine
-atrPeriod = input.int(10, title="ATR period")
-```
+4. **Versatility**
+   - Compatible with all TradingView timeframes
+   - Overlay strategy for seamless chart integration
 
-### `factor`
-- **Type**: `float`
-- **Default**: `3.0`
-- **Description**: Multiplier used in Supertrend calculation
-- **Usage**: 
-```pine
-factor = input.float(3.0, title="factor")
-```
+### Configuration Options
+- Strategy On/Off Switch
+- Supertrend Filter Activation
+- Customizable ATR Period
+- Adjustable Stop Loss and Take Profit Percentages
 
-### `sl` (Stop Loss)
-- **Type**: `float`
-- **Default**: `1.5`
-- **Description**: Stop loss percentage
-- **Usage**: 
-```pine
-sl = input.float(1.5, title="Стоп Лос (%)") / 100
-```
+### Potential Use Cases
+- Algorithmic trading
+- Technical analysis
+- Trend-following strategies
+- Multi-timeframe trading analysis
 
-### `tp` (Take Profit)
-- **Type**: `float`
-- **Default**: `3.0`
-- **Description**: Take profit percentage
-- **Usage**: 
-```pine
-tp = input.float(3.0, title="Тейк Профит (%)") / 100
-```
+### Future Roadmap
+- Ongoing improvements based on community feedback
+- Potential integration of AI/ML-based false signal detection
 
-## Strategy Functions
+## Project Structure
 
-### `ta.supertrend(factor, atrPeriod)`
-- **Description**: Calculates the Supertrend indicator
-- **Parameters**:
-  - `factor` (float): Multiplier for ATR
-  - `atrPeriod` (int): Period for ATR calculation
-- **Returns**: 
-  - `[supertrend, direction]` 
-    - `supertrend`: The Supertrend line value
-    - `direction`: Trend direction (1 for long, -1 for short)
-- **Usage**:
-```pine
-[supertrend, direction] = ta.supertrend(factor, atrPeriod)
-```
+The project is organized with the following key files:
 
-### `strategy.entry()`
-- **Description**: Enter a trading position
-- **Parameters**:
-  - `id` (string): Identifier for the trade
-  - `type` (strategy type): Type of trade (long or short)
-- **Usage**:
-```pine
-strategy.entry("Long", strategy.long)
-strategy.entry("Short", strategy.short)
-```
-
-### `strategy.exit()`
-- **Description**: Define exit conditions for a trade
-- **Parameters**:
-  - `id` (string): Identifier for the exit
-  - `from_entry` (string): Entry identifier to close
-  - `profit` (float): Take profit percentage
-  - `loss` (float): Stop loss percentage
-- **Usage**:
-```pine
-strategy.exit("TP/SL Long", from_entry="Long", profit=tp, loss=sl)
-```
-
-## Strategy Conditions
-
-### `longCond`
-- **Description**: Condition for entering a long position
-- **Criteria**: Strategy is on and Supertrend direction is long (1)
-
-### `shortCond`
-- **Description**: Condition for entering a short position
-- **Criteria**: Strategy is on and Supertrend direction is short (-1)
-
-## Repository Structure
-
-The repository contains the following key files:
-
-- `VSVTrend.pine`: The main Pine Script strategy implementation for TradingView
-  - Contains the core trading strategy logic
-  - Implements Supertrend filter
-  - Provides configurable inputs for strategy parameters
-  - Defines entry and exit conditions
-  - Includes take profit and stop loss mechanisms
-
-- `LICENSE`: The license file detailing the terms of use for the project
-
-- `README.md`: Project documentation and overview
+- `VSVTrend.pine`: Main TradingView Pine Script strategy file
+  - Contains the core trading strategy implementation
+  - Includes configuration for Supertrend filter
+  - Manages entry and exit conditions
+  - Implements Take Profit and Stop Loss mechanisms
 
 ### Key Components
-- Strategy inputs include:
-  - Strategy ON/OFF toggle
-  - Supertrend filter toggle
-  - ATR period configuration
-  - Stop loss and take profit percentages
+- Strategy inputs for turning the strategy on/off
+- Configurable Supertrend filter
+- Customizable ATR period and factor
+- Adjustable Stop Loss and Take Profit percentages
 
-Note: Some files mentioned in the previous README (such as `data/sample_tradelog.csv` and `ml/model_train.py`) are not currently present in the repository.
+### File Overview
+- `LICENSE`: Project licensing information
+- `README.md`: Project documentation and overview
+- `VSVTrend.pine`: Primary strategy script
 
-## Contributing
+**Note**: Some files mentioned in the previous README (like `data/sample_tradelog.csv` and `ml/model_train.py`) are not currently present in the repository.
 
-We welcome contributions to the VSVTrend Strategy! Here's how you can help improve the project:
+## Technologies Used
 
-### Ways to Contribute
-1. Suggest improvements to the strategy logic
-2. Help refine the AI/ML false signal detection module
-3. Provide backtesting results and performance insights
-4. Report bugs or unexpected behavior
-5. Enhance documentation or add more comprehensive examples
+### Languages
+- Pine Script (v5) - Primary language for TradingView strategy development
+- Python (for machine learning model training)
 
-### Contribution Process
-1. Fork the repository
-2. Create a new branch for your feature or bugfix
+### Frameworks and Libraries
+- TradingView Pine Script - Trading strategy development platform
+- Machine Learning Libraries (implied, specifics not shown in current files)
+
+### Key Technical Components
+- Technical Analysis Indicators
+  - Supertrend Indicator
+  - Average True Range (ATR)
+- Strategy Optimization Techniques
+  - Adaptive Stop Loss / Take Profit
+  - False Signal Detection (AI/ML-based)
+
+### Development Platforms
+- TradingView - Primary development and backtesting environment
+
+## Usage Examples
+
+### TradingView Strategy Implementation
+
+1. **Accessing the Strategy**
+   - Open TradingView Pine Editor
+   - Create a new Pine Script strategy
+   - Copy and paste the entire contents of `VSVTrend.pine`
+
+2. **Configuration Options**
+   The strategy provides several configurable inputs:
+   - `Strategy ON/OFF`: Toggle the entire strategy on/off
+   - `Supertrend filter`: Enable/disable the Supertrend trend filter
+   - `ATR period`: Adjust the Average True Range period (default: 10)
+   - `factor`: Modify the Supertrend sensitivity (default: 3.0)
+   - `Stop Loss`: Set stop loss percentage (default: 1.5%)
+   - `Take Profit`: Set take profit percentage (default: 3.0%)
+
+3. **Basic Usage**
+   ```pine
+   // Strategy is automatically applied when script is added to chart
+   // Adjust settings in the strategy inputs panel
    ```
-   git checkout -b feature/your-feature-name
-   ```
-3. Make your changes to the `VSVTrend.pine` file
-4. Test your modifications thoroughly
-5. Submit a pull request with a clear description of your changes
 
-### Testing
-Since this is a TradingView Pine Script strategy, testing involves:
-- Thorough backtesting on multiple timeframes
-- Validation across different market conditions
-- Comparing performance with existing results
+4. **Backtesting**
+   - Click "Pine Strategy Tester" in TradingView
+   - Select desired timeframe and historical range
+   - Review strategy performance metrics
 
-### Code Style
-- Follow Pine Script best practices
-- Maintain clear and readable code
-- Add comments explaining complex logic
+### Customization Tips
+- Experiment with different `ATR period` and `factor` values
+- Adjust `Stop Loss` and `Take Profit` percentages based on your risk tolerance
+- Use the `Supertrend filter` toggle to refine entry/exit signals
 
-### Reporting Issues
-If you encounter any problems:
-- Check existing issues before creating a new one
-- Provide a detailed description of the problem
-- Include steps to reproduce the issue
-- If possible, share screenshots or backtesting results
+### Recommended Workflow
+1. Start with default settings
+2. Backtest on multiple timeframes
+3. Gradually adjust parameters
+4. Monitor performance metrics
 
-### Machine Learning Contributions
-If you're interested in improving the AI/ML module:
-- Review the `ml/model_train.py` script
-- Propose enhancements to false signal detection
-- Suggest additional features for model training
-
-**Note:** All contributions are subject to review to maintain the strategy's quality and performance.
+### Notes
+- Compatible with all TradingView-supported assets
+- Works best on liquid markets with clear trends
+- Always use proper risk management
 
 ## License
 
-This project is licensed under the [MIT License](LICENSE).
+This project is licensed under the [MIT License](LICENSE). 
 
-The MIT License is a permissive open-source license that allows you to:
-- Use the software commercially
-- Modify the software
-- Distribute the software
-- Privately use the software
+For the full license details, please see the [LICENSE](LICENSE) file in the repository root.
 
-The only conditions are that you:
-- Include the original license and copyright notice in any substantial portion of the software
-- Provide the license and copyright notice with the software
+## Additional Notes
 
-For the full license text, please see the [LICENSE](LICENSE) file in the repository.
+### Development and Contribution
+- This strategy is an open-source project welcoming community feedback and improvements
+- Contributions are encouraged to refine the trading strategy and AI/ML false signal detection
+
+### Considerations for Use
+- The strategy is designed to be flexible across different timeframes
+- Users should carefully backtest and validate performance for their specific trading needs
+- The AI/ML module is experimental and should not be considered a guaranteed trading signal
+
+### Performance Optimization
+- Adjust ATR period and Supertrend factor to fine-tune strategy sensitivity
+- Customizable stop loss (1.5%) and take profit (3%) percentages allow risk management
+- Strategy can be easily toggled on/off and includes a Supertrend filter option
+
+### Known Limitations
+- Performance may vary across different markets and asset classes
+- Requires TradingView Pine Script environment for execution
+- AI/ML false signal detection is in early stages of development
+
+### Future Roadmap
+- Enhance machine learning model for improved signal accuracy
+- Expand support for additional technical indicators
+- Develop more robust backtesting and performance analysis tools
