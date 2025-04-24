@@ -1,178 +1,159 @@
-# VSVTrend Strategy: Trend-Following Trading with Supertrend on TradingView
+# VSVTrend Strategy: Automated Trend-Following Trading with Supertrend on TradingView
 
 ## Project Overview
 
-This repository contains the **VSVTrend Strategy**, a trading strategy script written in Pine Script for use on TradingView. The primary purpose of this codebase is to provide an automated trading strategy that helps traders identify and act on market trends using the Supertrend indicator as a filter.
+This project contains a TradingView Pine Script named **VSVTrend Strategy**, designed for algorithmic trading. The script implements a trend-following strategy that utilizes the Supertrend indicator to determine entry and exit points for trades.
 
-### Key Features
-- **Supertrend Filter**: Utilizes the Supertrend indicator to determine market direction and filter trading signals.
-- **Configurable Parameters**: Offers customizable inputs such as ATR period, factor for Supertrend calculation, stop loss, and take profit percentages.
-- **Long and Short Entries**: Supports both long and short positions based on Supertrend direction.
-- **Risk Management**: Includes built-in stop loss and take profit settings to manage risk.
+### Purpose and Problems Solved
+The main purpose of VSVTrend Strategy is to automate trading decisions by identifying trends in financial markets. It solves the problem of manual trend analysis by providing a systematic approach to enter long or short positions based on market direction, as determined by the Supertrend indicator. This helps traders reduce emotional decision-making and maintain consistency in their trading approach.
 
-### Benefits
-- **Automation**: Automates entry and exit decisions, reducing emotional trading biases.
-- **Flexibility**: Allows users to toggle the strategy on/off and adjust settings to suit different market conditions or personal risk tolerance.
-- **Visual Feedback**: Plots the Supertrend indicator on the chart for visual confirmation of trend direction.
+### Key Features and Benefits
+- **Supertrend Filter**: Uses the Supertrend indicator to filter trades, ensuring entries align with the prevailing market trend.
+- **Configurable Parameters**: Allows customization of key inputs such as ATR period, factor for Supertrend calculation, stop-loss, and take-profit percentages.
+- **Automated Trading**: Executes long and short trades automatically based on predefined conditions, saving time and effort.
+- **Risk Management**: Incorporates stop-loss and take-profit levels to manage risk and protect capital.
+- **Toggleable Strategy**: Provides an option to turn the strategy on or off without removing it from the chart.
 
-This project is ideal for traders looking for a simple yet effective trend-following strategy to integrate into their TradingView platform.
+By leveraging these features, the VSVTrend Strategy offers a structured and disciplined approach to trend-based trading, potentially improving trading outcomes for users on the TradingView platform.
 
 ## Getting Started, Installation, and Setup
 
-### Getting Started
+This section provides a quick start guide to using the VSV Trend strategy for TradingView. For detailed installation instructions, refer to the Installation and Setup section below.
 
-This project contains a Pine Script (`VSVTrend.pine`) for use in TradingView, a platform for trading and technical analysis. The script is likely a custom indicator or strategy to assist with trend analysis.
+### Quick Start Guide
+1. **Access TradingView**: Open your browser and navigate to [TradingView](https://www.tradingview.com).
+2. **Open Pine Editor**: Go to the chart view, and at the bottom, click on the 'Pine Editor' tab.
+3. **Copy the VSV Trend Script**: Open the file `VSVTrend.pine` from this repository, copy its contents.
+4. **Paste into Pine Editor**: Paste the copied script into the Pine Editor on TradingView.
+5. **Add to Chart**: Click 'Add to Chart' to apply the strategy to your current chart.
+6. **Configure Settings**: Adjust the strategy settings as needed through the inputs dialog.
 
-**Quick Start Guide:**
-1. Open TradingView in your browser (https://www.tradingview.com).
-2. Access the Pine Editor by clicking on 'Pine Editor' at the bottom of the chart interface.
+For comprehensive installation and setup instructions, see the sections below.
+
+## Installation and Setup
+This section covers the steps to install and set up the VSV Trend strategy on TradingView. As this is a Pine Script strategy, there are no traditional software dependencies or platform-specific instructions beyond access to TradingView.
+
+### Prerequisites
+- A TradingView account (free or paid, depending on your needs).
+- A web browser with internet access.
+
+### Installation Steps
+1. **Clone or Download the Repository**: If you haven't already, clone this repository to your local machine or download the `VSVTrend.pine` file directly.
+2. **Access TradingView**: Log in to your TradingView account via a web browser.
+3. **Open Pine Editor**:
+   - Navigate to the chart view for any asset.
+   - At the bottom of the page, click on the 'Pine Editor' tab to open the script editor.
+4. **Import the Script**:
+   - Open the `VSVTrend.pine` file in a text editor on your local machine.
+   - Copy the entire content of the file.
+   - Paste it into the Pine Editor on TradingView.
+5. **Save the Script**: Click the 'Save' button in the Pine Editor. You may need to name your script if prompted.
+6. **Add to Chart**: Click 'Add to Chart' to apply the VSV Trend strategy to the current chart you're viewing.
+
+### Development vs. Production
+As this is a TradingView Pine Script, there is no distinction between development and production environments. The script runs directly on TradingView's platform:
+- **Testing/Development**: You can test the strategy using historical data on TradingView by adding it to a chart and using the 'Strategy Tester' tab to simulate trades.
+- **Live Trading (Production)**: To use the strategy for live trading, configure alerts based on the strategy's signals or connect it to a broker integration if supported by TradingView and your account plan.
+
+### Additional Notes
+- Ensure you understand the strategy logic by reviewing the comments and code in `VSVTrend.pine` before using it for live trading.
+- TradingView may have limitations or specific requirements based on your account type for using custom strategies in live trading.
+
+## Features / Capabilities
+
+- **VSVTrend Strategy**: A trading strategy implemented in Pine Script for TradingView. This strategy uses the Supertrend indicator as a filter to determine market trends and make trading decisions.
+  - **Supertrend Filter**: Configurable option to enable or disable the Supertrend indicator for filtering trades. When enabled, it plots the Supertrend line on the chart, indicating bullish (green) or bearish (red) trends.
+  - **Entry Conditions**: The strategy enters a long position when the Supertrend direction is bullish (direction == 1) and a short position when the direction is bearish (direction == -1), provided the strategy is turned on.
+  - **Take Profit and Stop Loss**: Customizable Take Profit (TP) and Stop Loss (SL) levels as percentages. Default TP is set to 3.0% and SL to 1.5%.
+  - **Position Sizing**: The strategy allocates 10% of equity per trade by default, which can be adjusted as needed.
+  - **Configuration Options**:
+    - **Strategy ON/OFF**: Toggle to enable or disable the strategy.
+    - **ATR Period**: Adjustable ATR period for the Supertrend calculation (default: 10).
+    - **Factor**: Multiplier for the Supertrend calculation (default: 3.0).
+
+This strategy is designed for automated trading on TradingView and can be customized based on user preferences for risk management and trend filtering.
+
+## Technologies Used
+
+- **Pine Script**: The primary language used for developing the trading strategy in this project, specifically for TradingView.
+- **TradingView Platform**: The environment where the VSVTrend strategy script is intended to be deployed and executed.
+
+## Usage Examples
+
+Below are examples of how to use the VSVTrend Strategy in TradingView. This strategy is implemented in Pine Script and can be added to your chart for trend-following trading based on the Supertrend indicator.
+
+### Adding the Strategy to TradingView
+1. Open TradingView and load the chart for the asset you want to trade.
+2. Click on **Pine Editor** at the bottom of the TradingView interface.
 3. Copy the contents of `VSVTrend.pine` from this repository.
-4. Paste the script into the Pine Editor.
-5. Click 'Add to Chart' to apply the script to your current chart.
-6. Adjust any input parameters if available in the script settings to customize the output.
+4. Paste the code into the Pine Editor.
+5. Click **Add to Chart** to apply the strategy to your chart.
 
-For detailed instructions on installation and setup, refer to the section below.
+### Configuring the Strategy
+- **Strategy ON/OFF**: Toggle the strategy execution (default: enabled).
+- **Supertrend Filter**: Enable or disable the Supertrend indicator as a filter for entries (default: enabled).
+- **ATR Period**: Set the period for Average True Range calculation (default: 10).
+- **Factor**: Adjust the multiplier for the Supertrend calculation (default: 3.0).
+- **Stop Loss (%)**: Set the stop loss percentage (default: 1.5%).
+- **Take Profit (%)**: Set the take profit percentage (default: 3.0%).
 
-### Installation and Setup
+### Running the Strategy
+- Once added to the chart, the strategy will automatically detect trends using the Supertrend indicator.
+- It will enter a **Long** position when the trend is bullish (direction == 1).
+- It will enter a **Short** position when the trend is bearish (direction == -1).
+- The strategy includes configurable Take Profit and Stop Loss levels to manage risk.
 
-Since this project consists of a Pine Script for TradingView, there is no traditional installation or build process. Follow these steps to set up and use the script:
+### Viewing Results
+- Check the **Strategy Tester** panel in TradingView to see the performance of the VSVTrend Strategy, including entry/exit points, profit/loss, and other metrics.
 
-#### Using the Script in TradingView
-1. **Obtain the Script**: Download or copy the contents of `VSVTrend.pine` from this repository.
-2. **Access TradingView**: Log in to your TradingView account via a web browser or the TradingView app.
-3. **Open Pine Editor**: In TradingView, navigate to the chart view and click on 'Pine Editor' at the bottom of the screen.
-4. **Paste the Script**: Paste the copied code from `VSVTrend.pine` into the editor.
-5. **Compile and Add to Chart**: Click the 'Add to Chart' button to compile the script and apply it to your active chart.
-6. **Customize Settings**: If the script includes configurable inputs, adjust them via the settings panel that appears after adding the script to the chart.
-
-#### Platform-Specific Instructions
-- **Web Browser**: TradingView works on any modern browser (Chrome, Firefox, Safari, etc.). No additional setup is required.
-- **Mobile App**: You can use the TradingView app on iOS or Android, but editing Pine Scripts might be limited. It's recommended to use a desktop browser for full functionality.
-
-#### Development and Testing
-- There is no separate 'development' environment for Pine Scripts. All testing and modifications are done directly in the TradingView Pine Editor.
-- Save your script in TradingView by clicking 'Save' in the Pine Editor to avoid losing changes.
-
-#### Production Use
-- Pine Scripts do not have a 'build' or 'release' process. Once added to a chart in TradingView, the script is live and functional.
-- If you wish to share or publish the script, you can do so via TradingView's 'Publish Script' feature, subject to their terms and community guidelines.
-
-#### Dependencies
-- There are no external dependencies or libraries required beyond access to the TradingView platform.
-
-If you encounter issues or need to modify the script, refer to TradingView's Pine Script documentation for language-specific guidance.
-
-## API Reference
-
-This section provides a detailed reference for the `VSVTrend` strategy, which is implemented in Pine Script for use in TradingView. Below, you will find information on the strategy's configuration inputs and key components.
-
-### Strategy Configuration
-
-- **`VSVTrend Strategy`**
-  - **Description**: A trading strategy that uses the Supertrend indicator as a filter to determine entry and exit points for long and short positions. The strategy can be toggled on or off and allows customization of parameters such as ATR period, factor, stop loss, and take profit percentages.
-  - **Inputs**:
-    - `show_strategy: bool` - Toggles the strategy on or off. Default is `true`.
-      - **Description**: Enables or disables the strategy execution.
-    - `use_supertrend: bool` - Determines whether to use the Supertrend filter. Default is `true`.
-      - **Description**: When enabled, the Supertrend indicator is used to filter trades.
-    - `atrPeriod: int` - The period for calculating the Average True Range (ATR). Default is `10`.
-      - **Description**: Defines the lookback period for ATR calculation, affecting the Supertrend sensitivity.
-    - `factor: float` - The multiplier for ATR in the Supertrend calculation. Default is `3.0`.
-      - **Description**: Adjusts the width of the Supertrend bands; higher values create wider bands.
-    - `sl: float` - Stop Loss percentage. Default is `1.5` (i.e., 1.5%).
-      - **Description**: Sets the stop loss level as a percentage of the entry price.
-    - `tp: float` - Take Profit percentage. Default is `3.0` (i.e., 3.0%).
-      - **Description**: Sets the take profit level as a percentage of the entry price.
-  - **Logic**:
-    - The strategy enters a long position when the Supertrend direction is bullish (direction == 1) and the strategy is enabled.
-    - The strategy enters a short position when the Supertrend direction is bearish (direction == -1) and the strategy is enabled.
-    - Exits are managed with predefined stop loss and take profit levels for both long and short positions.
-  - **Example Usage**:
-    ```pinescript
-    //@version=5
-    strategy("VSVTrend Strategy", overlay=true, default_qty_type=strategy.percent_of_equity, default_qty_value=10)
-    show_strategy = input.bool(true, title="Strategy ON/OFF")
-    use_supertrend = input.bool(true, title="Supertrend filter")
-    atrPeriod = input.int(10, title="ATR period")
-    factor = input.float(3.0, title="factor")
-    sl = input.float(1.5, title="Стоп Лос (%)") / 100
-    tp = input.float(3.0, title="Тейк Профит (%)") / 100
-    [supertrend, direction] = ta.supertrend(factor, atrPeriod)
-    longCond = show_strategy and (direction == 1)
-    shortCond = show_strategy and (direction == -1)
-    if (longCond)
-        strategy.entry("Long", strategy.long)
-    if (shortCond)
-        strategy.entry("Short", strategy.short)
-    strategy.exit("TP/SL Long", from_entry="Long", profit=tp, loss=sl)
-    strategy.exit("TP/SL Short", from_entry="Short", profit=tp, loss=sl)
-    ```
-
-### Indicators
-
-- **`Supertrend`**
-  - **Description**: An indicator used to identify trends and potential reversals. It is plotted on the chart when the `use_supertrend` option is enabled.
-  - **Parameters**:
-    - `factor: float` - Multiplier for ATR. Default is `3.0`.
-    - `atrPeriod: int` - Period for ATR calculation. Default is `10`.
-  - **Return Values**:
-    - `supertrend: float` - The calculated Supertrend value.
-    - `direction: int` - Indicates the trend direction (1 for bullish, -1 for bearish).
-  - **Example Usage**:
-    - The Supertrend indicator is automatically calculated and plotted in the strategy script when enabled. Users can adjust `factor` and `atrPeriod` to modify its behavior.
+**Note**: This strategy invests 10% of equity per trade by default. Adjust the `default_qty_value` in the script if needed.
 
 ## Project Structure
 
-This repository has a simple structure with the following key files:
+This section outlines the key files and directories in the repository to help you understand the organization of the codebase.
 
 ### Key Files
-- **VSVTrend.pine**: The main script file written in Pine Script, likely used for creating a custom indicator or strategy for TradingView.
-- **LICENSE**: Contains the licensing information for the repository.
-- **README.md**: The main documentation file for the project.
+- **LICENSE**: Contains the licensing information for the project, detailing the terms under which the code can be used, modified, and distributed.
+- **README.md**: The primary documentation file providing an overview of the project, installation instructions, and other essential information.
+- **README_Prometheus.md**: A specialized documentation file, likely containing information related to Prometheus, a monitoring system and time series database, as it pertains to this project.
+- **VSVTrend.pine**: A Pine Script file, which is used for creating custom indicators or strategies in TradingView. This file likely contains the core logic for a trend analysis or visualization tool.
 
 ## Additional Notes
 
-This section provides supplementary information about the VSVTrend Strategy, a TradingView Pine Script designed for trend-following trading.
+This section provides supplementary information about the project that may be useful for users and contributors.
 
-### Strategy Details
-The VSVTrend Strategy is built to identify and follow market trends using the Supertrend indicator as a filter. When enabled, it enters long or short positions based on the direction of the Supertrend. Key features include:
-- **Supertrend Filter**: Optionally use the Supertrend indicator to determine the trend direction. When active, trades are only initiated in the direction of the trend.
-- **ATR Period and Factor**: Configurable parameters for the Supertrend calculation, allowing users to adjust the sensitivity of the trend detection.
-- **Position Sizing**: The strategy uses a percentage of equity for position sizing, with a default of 10% per trade.
+### Compatibility
+The `VSVTrend.pine` script is designed for use with TradingView's Pine Script environment. Ensure that you are using a compatible version of TradingView to avoid syntax or functionality issues.
 
-### Customization
-Users can customize the strategy through the input parameters directly in TradingView:
-- Toggle the strategy on or off.
-- Enable or disable the Supertrend filter.
-- Adjust the ATR period and factor for the Supertrend.
-- Set Stop Loss and Take Profit levels as percentages to manage risk and reward.
-
-### Usage Considerations
-- **Backtesting**: Before deploying this strategy in a live trading environment, thoroughly backtest it using historical data on TradingView to understand its performance characteristics.
-- **Risk Management**: Ensure that the Stop Loss and Take Profit settings align with your risk tolerance. The default values (1.5% SL, 3.0% TP) are starting points and may need adjustment based on market conditions or personal strategy.
-- **Market Conditions**: This trend-following strategy may perform differently in trending versus ranging markets. Monitor its effectiveness and adjust parameters as needed.
+### Limitations
+As this project primarily consists of a single Pine Script file, its scope is limited to the functionality provided within `VSVTrend.pine`. Users should be aware that this script may require customization or integration with other tools for broader applications.
 
 ### Disclaimer
-This strategy is provided for educational and informational purposes only. Trading involves significant risk, and past performance in backtesting is not indicative of future results. Always conduct your own research and consult with a financial advisor before engaging in trading activities.
+The provided script is for educational and informational purposes only. It should not be considered as financial advice. Always conduct your own research before making any trading decisions based on this script.
+
+### Further Reading
+For more information on Pine Script and how to use scripts like `VSVTrend.pine`, refer to the official TradingView documentation and community forums.
 
 ## Contributing
 
-We welcome contributions from the community to help improve **VSVTrend** and make it an even better trading strategy. Whether you have ideas for new features, bug fixes, or optimizations, your input is valuable.
+We welcome contributions from the community to help improve this project. Here's how you can get involved:
 
 ### How to Contribute
 1. **Fork the Repository**: Start by forking the repository to your own GitHub account.
-2. **Clone the Repository**: Clone the forked repository to your local machine for development.
-3. **Make Changes**: Implement your changes or additions to the codebase. Ensure that your modifications align with the project's goals.
-4. **Test Your Changes**: Test your updates thoroughly to ensure they work as expected and do not introduce new issues.
-5. **Submit a Pull Request**: Push your changes to your forked repository and submit a pull request to the main repository. Provide a clear description of your changes and why they are beneficial.
+2. **Clone the Repository**: Clone the forked repository to your local machine to work on the changes.
+3. **Make Changes**: Implement your changes or improvements in your local copy. Ensure your code is clean and well-documented.
+4. **Test Your Changes**: Make sure to test your changes locally to ensure they work as expected and do not introduce bugs.
+5. **Commit Your Changes**: Commit your changes with clear, descriptive commit messages that explain the purpose of the changes.
+6. **Push to Your Fork**: Push your changes to your forked repository on GitHub.
+7. **Submit a Pull Request**: Create a pull request from your fork to the main repository. Provide a detailed description of your changes and why they should be merged.
 
 ### Contribution Guidelines
-- **Code Style**: Follow the conventions and structure present in the existing Pine Script code (`VSVTrend.pine`). Ensure your code is clean, readable, and well-commented.
-- **Testing**: Any new features or changes should be tested to confirm they function correctly across different timeframes and market conditions.
-- **Documentation**: Update any relevant documentation or comments within the code to reflect your changes.
-- **Focus on Compatibility**: Ensure that your contributions are compatible with TradingView's Pine Script version 5.
+- **Code Style**: Please follow consistent coding styles and conventions used in the project. If a specific style guide is not provided, aim for readability and consistency with the existing codebase.
+- **Testing**: Ensure that any new features or bug fixes include appropriate tests to maintain the project's quality.
+- **Documentation**: Update any relevant documentation to reflect your changes. This includes comments in the code and any user-facing documentation.
+- **Respect the Community**: Be respectful and considerate in your interactions with other contributors and maintainers.
 
-We look forward to collaborating with you to enhance **VSVTrend** and achieve the goal of creating the perfect alpha indicator strategy!
+We appreciate your interest in contributing to this project and look forward to reviewing your submissions!
 
 ## License
 
